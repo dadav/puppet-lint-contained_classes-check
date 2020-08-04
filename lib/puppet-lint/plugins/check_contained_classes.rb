@@ -45,13 +45,13 @@ PuppetLint.new_check(:contained_classes) do
       problem[:token].line, problem[:token].column+1
     )
 
-    pos = tokens.index(last_token)
-    tokens.insert(pos + 1, contain_class)
-    tokens.insert(pos + 1, white)
-    tokens.insert(pos + 1, contain)
+    pos = tokens.index(last_token) + 1
+    tokens.insert(pos, contain_class)
+    tokens.insert(pos, white)
+    tokens.insert(pos, contain)
     (problem[:column] - 1).times do
-      tokens.insert(pos + 1, white)
+      tokens.insert(pos, white)
     end
-    tokens.insert(pos + 1, newline)
+    tokens.insert(pos, newline)
   end
 end

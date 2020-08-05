@@ -5,7 +5,7 @@ PuppetLint.new_check(:contained_classes) do
       class_name = token.next_code_token.next_code_token.value
       found = false
       manifest_lines.each do | line |
-        if line =~ /[^\s#]*contain\s+\b#{class_name}\b/
+        if line =~ /^[^#]*contain\s+\b#{class_name}\b/
           found = true
           break
         end
